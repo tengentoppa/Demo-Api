@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DemoApi.Controllers
 {
     [ApiController]
-    [Route("/api/activitys")]
+    [Route("/api/activities")]
     public class ActivityController : ControllerBase
     {
         private readonly DemoContext _db;
@@ -22,15 +22,15 @@ namespace DemoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Activity>>> GetAll()
         {
-            var activitys = await _db.Activitys.ToListAsync();
+            var activities = await _db.Activities.ToListAsync();
 
-            return activitys;
+            return activities;
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Activity>> Get(long id)
         {
-            var activity = await _db.Activitys.FindAsync(id);
+            var activity = await _db.Activities.FindAsync(id);
             if (activity == null)
             {
                 return NotFound();
@@ -42,20 +42,20 @@ namespace DemoApi.Controllers
         [HttpPost]
         public async Task Post(Activity activity)
         {
-            _db.Activitys.Add(activity);
+            _db.Activities.Add(activity);
             await _db.SaveChangesAsync();
         }
 
         [HttpPost("{id}")]
         public async Task Post(Activity activity, long id)
         {
-            var activitys = await _db.Activitys.FindAsync(id);
+            var activities = await _db.Activities.FindAsync(id);
 
-            activitys.Title = activity.Title;
-            activitys.Location = activity.Location;
-            activitys.StartTime = activity.StartTime;
-            activitys.EndTime = activity.EndTime;
-            activitys.Depiction = activity.Depiction;
+            activities.Title = activity.Title;
+            activities.Location = activity.Location;
+            activities.StartTime = activity.StartTime;
+            activities.EndTime = activity.EndTime;
+            activities.Description = activity.Description;
 
             await _db.SaveChangesAsync();
         }
@@ -63,13 +63,13 @@ namespace DemoApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            var activity = await _db.Activitys.FindAsync(id);
+            var activity = await _db.Activities.FindAsync(id);
             if (activity == null)
             {
                 return NotFound();
             }
 
-            _db.Activitys.Remove(activity);
+            _db.Activities.Remove(activity);
             await _db.SaveChangesAsync();
             return Ok();
         }

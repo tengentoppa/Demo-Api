@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Context.DemoApi;
 using DemoApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -12,8 +13,8 @@ namespace DemoApi.Controllers
     [Route("/api/orders")]
     public class OrderController : ControllerBase
     {
-        private readonly DbContext _db;
-        public OrderController(DbContext db)
+        private readonly DemoContext _db;
+        public OrderController(DemoContext db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
         }

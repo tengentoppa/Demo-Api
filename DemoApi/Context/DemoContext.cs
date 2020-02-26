@@ -13,6 +13,7 @@ namespace Context.DemoApi
         {
 
         }
-        public DbSet<Activity> Activitys { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace DemoApi.Controllers
         private readonly DemoContext _db;
         public ActivityController(DemoContext db)
         {
-            _db = db ?? throw new ArgumentNullException(nameof(db));
+            _db = db ?? throw new NullReferenceException(nameof(db));
         }
 
         [HttpGet]

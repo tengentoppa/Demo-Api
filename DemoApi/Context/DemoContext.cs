@@ -15,5 +15,8 @@ namespace Context.DemoApi
         }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<UserInfo> UserInfos { get; set; }
     }
 }

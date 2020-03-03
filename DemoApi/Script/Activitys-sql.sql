@@ -20,13 +20,13 @@ create table `Orders`
     `IsComplete` int
 )
 
-create table `Permission`
+create table `Permissions`
 (
 	`PermissionId` int not null primary key auto_increment,
     `AccessibleContent` varchar(100)
 );
 
-create table `UserInfo`
+create table `UserInfos`
 (
 	`UserInfoId` int not null primary key auto_increment,
     `Name` varchar(30),
@@ -35,7 +35,7 @@ create table `UserInfo`
     `Memo` nvarchar(200)
 );
 
-create table `User`
+create table `Users`
 (
 	`UserId` int not null primary key auto_increment,
     `Autho` varchar(100),

@@ -22,7 +22,7 @@ namespace DemoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Activity>>> GetAll()
         {
-            var activities = await _db.Activities.ToListAsync();
+              var activities = await _db.Activities.ToListAsync();
 
             return activities;
         }
